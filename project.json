@@ -1,8 +1,9 @@
 {
-  "name": "Orchestrator_Login",
+  "name": "DSF_Orchestrator_Login",
   "description": "Make sure the invitation is accepted and login to Orchestrator.",
   "main": "Main.xaml",
   "dependencies": {
+    "DSF": "[1.0.7-alpha.19]",
     "UiPath.Mail.Activities": "[1.8.2-preview]",
     "UiPath.System.Activities": "[20.3.0-preview]",
     "UiPath.UIAutomation.Activities": "[20.2.0-preview]"
