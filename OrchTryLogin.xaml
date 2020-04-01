@@ -10,7 +10,7 @@
   <this:OrchTryLogin.pw>
     <InArgument x:TypeArguments="ss:SecureString" />
   </this:OrchTryLogin.pw>
-  <sap:VirtualizedContainerService.HintSize>1727.11111111111,1721.77777777778</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1727.11111111111,1830.22222222222</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -50,24 +50,36 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Orch_TryLogin" sap:VirtualizedContainerService.HintSize="1707.11111111111,1661.77777777778" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence DisplayName="Orch_TryLogin" sap:VirtualizedContainerService.HintSize="1707.11111111111,1770.22222222222" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser UiPath login" sap:VirtualizedContainerService.HintSize="1665.33333333333,1569.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="fbf58d5b1c02fb122bb157345ee1072b" Selector="&lt;html app='chrome.exe' title='Continue with UiPath' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser UiPath login" sap:VirtualizedContainerService.HintSize="1665.33333333333,1677.77777777778" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="fbf58d5b1c02fb122bb157345ee1072b" Selector="&lt;html app='chrome.exe' title='Continue with UiPath' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1631.55555555556,1422.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1631.55555555556,1531.11111111111" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" sap:VirtualizedContainerService.HintSize="1589.77777777778,68.4444444444444" sap2010:WorkflowViewState.IdRef="Activate_1">
+              <ui:Activate.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Activate.Target>
+            </ui:Activate>
             <Pick sap:VirtualizedContainerService.HintSize="1589.77777777778,1330.22222222222" sap2010:WorkflowViewState.IdRef="Pick_2">
               <PickBranch DisplayName="PickBranch create your account" sap:VirtualizedContainerService.HintSize="383.555555555556,1284" sap2010:WorkflowViewState.IdRef="PickBranch_3">
                 <PickBranch.Trigger>
@@ -186,7 +198,7 @@
                       <PickBranch.Trigger>
                         <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Invalid password" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
                           <ui:WaitUiElementAppear.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="39cac4b595a41004d8a91f65280e99e1" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='9' isleaf='1' tag='DIV' /&gt;" TimeoutMS="10000">
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="39cac4b595a41004d8a91f65280e99e1" Selector="&lt;webctrl isleaf='1' tag='DIV' aaname='Invalid email address or password' /&gt;" TimeoutMS="10000">
                               <ui:Target.WaitForReady>
                                 <InArgument x:TypeArguments="ui:WaitForReady" />
                               </ui:Target.WaitForReady>
