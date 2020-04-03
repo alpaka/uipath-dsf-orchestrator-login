@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:de="clr-namespace:DSF.ErrorHandling;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="Mode" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1279.55555555556,3259.55555555556</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1279.55555555556,3359.55555555556</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -107,12 +107,8 @@
                 <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="DSF_OrchCredential" DisplayName="Get Credential orch credential" sap:VirtualizedContainerService.HintSize="520,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[pw]" Username="[user]" />
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="The first time you run the workflow in a new folder, we don't know the credential. I planned to use the MS password, but, as our password policy is more restrictive, we cannot just use that, so we append an ! and use the result as the new password&#xA;&#xA;Generating a new PW is also not an option as you can only sign up with a certain e-mail address once, so we need to make sure we have a reliable password" DisplayName="Invoke GenerateUserCredentialsIfNecessary workflow" sap:VirtualizedContainerService.HintSize="520,247.555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="GenerateUserCredentialsIfNecessary.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InOutArgument x:TypeArguments="ss:SecureString" x:Key="pw">
-                      <mva:VisualBasicReference x:TypeArguments="ss:SecureString" ExpressionText="pw" />
-                    </InOutArgument>
-                    <InOutArgument x:TypeArguments="x:String" x:Key="user">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="user" />
-                    </InOutArgument>
+                    <InOutArgument x:TypeArguments="ss:SecureString" x:Key="pw">[pw]</InOutArgument>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="user">[user]</InOutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -237,12 +233,13 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="479.111111111111,455.111111111111" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <Sequence sap:VirtualizedContainerService.HintSize="479.111111111111,557.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_20">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
+              <de:TakeScreenshotAndSend OutputPath="{x:Null}" ErrorMessage="[exception.Message]" sap:VirtualizedContainerService.HintSize="437.333333333333,22.2222222222222" sap2010:WorkflowViewState.IdRef="TakeScreenshotAndSend_1" ScreenshotFolder="C:\UiPath\ErrorScreenshots" />
               <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="437.333333333333,340.444444444444" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                 <TryCatch.Try>
                   <ui:CloseApplication DisplayName="Close Application 'chrome.exe Dashboard'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
