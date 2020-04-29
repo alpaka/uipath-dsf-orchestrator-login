@@ -4,7 +4,7 @@
     <x:Property Name="user" Type="InArgument(x:String)" />
     <x:Property Name="pw" Type="InArgument(ss:SecureString)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1044.44444444444,2453.77777777778</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1014.22222222222,2307.55555555556</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="18">
@@ -47,7 +47,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Orch_SignUp" sap:VirtualizedContainerService.HintSize="1024.44444444444,2393.77777777778" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence DisplayName="Orch_SignUp" sap:VirtualizedContainerService.HintSize="1024.44444444444,2142.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="folderID" />
     </Sequence.Variables>
@@ -182,7 +182,6 @@
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If sap:VirtualizedContainerService.HintSize="982.666666666667,211.111111111111" sap2010:WorkflowViewState.IdRef="If_1" />
     <Pick sap:VirtualizedContainerService.HintSize="982.666666666667,681.333333333333" sap2010:WorkflowViewState.IdRef="Pick_1">
       <PickBranch sap:VirtualizedContainerService.HintSize="383.555555555556,635.111111111111" sap2010:WorkflowViewState.IdRef="PickBranch_1">
         <PickBranch.Trigger>
