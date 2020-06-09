@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2405.77777777778,4324.44444444444</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2405.77777777778,4224.44444444444</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -161,7 +161,7 @@
               <PickBranch.Trigger>
                 <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element redirect failed" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_9">
                   <ui:WaitUiElementAppear.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e065b1c4-eef6-42cd-8a79-82fbac931b6c" InformativeScreenshot="9f3ff386e7367e2e18731d98403e34ec" Selector="&lt;html app='chrome.exe' title='Cannot find the requested page - UiPath Orchestrator' /&gt;&lt;webctrl aaname=' Cannot find the requested page ' tag='SPAN' /&gt;" TimeoutMS="120000">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e065b1c4-eef6-42cd-8a79-82fbac931b6c" InformativeScreenshot="9f3ff386e7367e2e18731d98403e34ec" Selector="&lt;html app='chrome.exe' title='Cannot find the requested page - UiPath Orchestrator' /&gt;&lt;webctrl aaname=' Cannot find the requested page ' tag='SPAN' /&gt;" TimeoutMS="60000">
                       <ui:Target.WaitForReady>
                         <InArgument x:TypeArguments="ui:WaitForReady" />
                       </ui:Target.WaitForReady>
