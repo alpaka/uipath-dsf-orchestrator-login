@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2405.77777777778,4224.44444444444</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2405.77777777778,4696.44444444444</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -57,9 +57,11 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="2416,4159.55555555556" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="2416,4591.55555555556" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -70,64 +72,25 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2374.22222222222,3376.88888888889" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2374.22222222222,3808.88888888889" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="loginResult" />
         <Variable x:TypeArguments="ss:SecureString" Name="pw" />
         <Variable x:TypeArguments="x:String" Name="user" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="2336.88888888889,3143.11111111111" sap2010:WorkflowViewState.IdRef="Sequence_18">
+        <Sequence sap:VirtualizedContainerService.HintSize="2336.88888888889,3575.11111111111" sap2010:WorkflowViewState.IdRef="Sequence_18">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Pick DisplayName="Pick Already logged in" sap:VirtualizedContainerService.HintSize="2295.11111111111,884.444444444444" sap2010:WorkflowViewState.IdRef="Pick_1">
-            <PickBranch DisplayName="PickBranch Log in" sap:VirtualizedContainerService.HintSize="425.333333333333,838.222222222222" sap2010:WorkflowViewState.IdRef="PickBranch_1">
-              <PickBranch.Trigger>
-                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Log IN" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
-                  <ui:WaitUiElementAppear.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9c76ea36-32c1-4a23-aa8d-c14d620eecbb" InformativeScreenshot="66a4a9a9dbab53091420df7de5d7d484" Selector="&lt;html app='chrome.exe' title='Continue with UiPath' /&gt;" TimeoutMS="60000">
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:WaitUiElementAppear.Target>
-                </ui:WaitUiElementAppear>
-              </PickBranch.Trigger>
-              <Sequence DisplayName="Log in" sap:VirtualizedContainerService.HintSize="375.555555555556,529.777777777778" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="DSF_OrchCredential" DisplayName="Get Credential orch credential" sap:VirtualizedContainerService.HintSize="333.777777777778,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[pw]" Username="[user]" />
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="The first time you run the workflow in a new folder, we don't know the credential. I planned to use the MS password, but, as our password policy is more restrictive, we cannot just use that, so we append an ! and use the result as the new password&#xA;&#xA;Generating a new PW is also not an option as you can only sign up with a certain e-mail address once, so we need to make sure we have a reliable password" DisplayName="Invoke GenerateUserCredentialsIfNecessary workflow" sap:VirtualizedContainerService.HintSize="333.777777777778,247.555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="GenerateUserCredentialsIfNecessary.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InOutArgument x:TypeArguments="ss:SecureString" x:Key="pw">[pw]</InOutArgument>
-                    <InOutArgument x:TypeArguments="x:String" x:Key="user">[user]</InOutArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:InvokeWorkflowFile>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke OrchTryLogin workflow" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="OrchTryLogin.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <OutArgument x:TypeArguments="x:String" x:Key="LoginResult">[loginResult]</OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="user">[user]</InArgument>
-                    <InArgument x:TypeArguments="ss:SecureString" x:Key="pw">[pw]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-              </Sequence>
-            </PickBranch>
-            <PickBranch DisplayName="PickBranch Already logged in" sap:VirtualizedContainerService.HintSize="383.555555555556,838.222222222222" sap2010:WorkflowViewState.IdRef="PickBranch_2">
+          <Pick DisplayName="Pick Already logged in" sap:VirtualizedContainerService.HintSize="2295.11111111111,1216" sap2010:WorkflowViewState.IdRef="Pick_1">
+            <PickBranch DisplayName="PickBranch Already logged in" sap:VirtualizedContainerService.HintSize="383.555555555556,1169.77777777778" sap2010:WorkflowViewState.IdRef="PickBranch_2">
               <PickBranch.Trigger>
                 <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Orchestrator Services" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
                   <ui:WaitUiElementAppear.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f4ec8d51-4f91-458e-9a46-aafc98263f5b" InformativeScreenshot="bfcc868618b4243432199d9715155e4e" Selector="&lt;html app='chrome.exe' title='Home - UiPath Platform' /&gt;&lt;webctrl tag='H5' aaname='Orchestrator Services' /&gt;" TimeoutMS="60000">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f4ec8d51-4f91-458e-9a46-aafc98263f5b" InformativeScreenshot="bfcc868618b4243432199d9715155e4e" Selector="&lt;html app='chrome.exe' title='Home - UiPath Automation Cloud' /&gt;&lt;webctrl tag='H5' aaname='Orchestrator Services' /&gt;" TimeoutMS="60000">
                       <ui:Target.WaitForReady>
                         <InArgument x:TypeArguments="ui:WaitForReady" />
                       </ui:Target.WaitForReady>
@@ -144,7 +107,7 @@
                 </Assign.Value>
               </Assign>
             </PickBranch>
-            <PickBranch DisplayName="PickBranch Already logged in Tenant" sap:VirtualizedContainerService.HintSize="383.555555555556,838.222222222222" sap2010:WorkflowViewState.IdRef="PickBranch_4">
+            <PickBranch DisplayName="PickBranch Already logged in Tenant" sap:VirtualizedContainerService.HintSize="383.555555555556,1169.77777777778" sap2010:WorkflowViewState.IdRef="PickBranch_4">
               <PickBranch.Trigger>
                 <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Orchestrator" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_6">
                   <ui:WaitUiElementAppear.Target>
@@ -157,7 +120,7 @@
                 </ui:WaitUiElementAppear>
               </PickBranch.Trigger>
             </PickBranch>
-            <PickBranch DisplayName="PickBranch Redirect failed" sap:VirtualizedContainerService.HintSize="383.555555555556,838.222222222222" sap2010:WorkflowViewState.IdRef="PickBranch_5">
+            <PickBranch DisplayName="PickBranch Redirect failed" sap:VirtualizedContainerService.HintSize="383.555555555556,1169.77777777778" sap2010:WorkflowViewState.IdRef="PickBranch_5">
               <PickBranch.Trigger>
                 <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element redirect failed" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_9">
                   <ui:WaitUiElementAppear.Target>
@@ -192,11 +155,11 @@
                 </ui:Click.Target>
               </ui:Click>
             </PickBranch>
-            <PickBranch DisplayName="PickBranch Enter Information" sap:VirtualizedContainerService.HintSize="425.333333333333,838.222222222222" sap2010:WorkflowViewState.IdRef="PickBranch_3">
+            <PickBranch DisplayName="PickBranch Unknown error" sap:VirtualizedContainerService.HintSize="425.333333333333,1169.77777777778" sap2010:WorkflowViewState.IdRef="PickBranch_9">
               <PickBranch.Trigger>
-                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Orchestrator Services" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_5">
+                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Error" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_14">
                   <ui:WaitUiElementAppear.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aa86950e-b1e2-476d-8c11-be43bc13f188" InformativeScreenshot="68e89713e1a0122a5a3000823fe9b78b" Selector="&lt;html app='chrome.exe' title='UiPath Platform' /&gt;&lt;webctrl tag='P' aaname='Enter the following information' /&gt;" TimeoutMS="60000">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e065b1c4-eef6-42cd-8a79-82fbac931b6c" InformativeScreenshot="b7c1043aa3cb776746e11fe7d5a70857" Selector="&lt;html app='chrome.exe' title='Error - UiPath' /&gt;&lt;webctrl aaname=' Error ' tag='SPAN' /&gt;" TimeoutMS="60000">
                       <ui:Target.WaitForReady>
                         <InArgument x:TypeArguments="ui:WaitForReady" />
                       </ui:Target.WaitForReady>
@@ -204,12 +167,56 @@
                   </ui:WaitUiElementAppear.Target>
                 </ui:WaitUiElementAppear>
               </PickBranch.Trigger>
-              <Sequence sap:VirtualizedContainerService.HintSize="375.555555555556,440.444444444444" sap2010:WorkflowViewState.IdRef="Sequence_22">
+              <Sequence sap:VirtualizedContainerService.HintSize="375.555555555556,861.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_27">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SVG  FullLogo'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ad4e02e7-36df-41f2-b976-d44870eb09a0" InformativeScreenshot="1ea5de81ed1ddf07221efed6a50971b3" Selector="&lt;html app='chrome.exe' title='Error - UiPath' /&gt;&lt;webctrl aaname='arrow_back' tag='MAT-ICON' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'P'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a993c8a2-1c5f-4f84-899e-d207c6f88cc4" InformativeScreenshot="823b4f3b0ceb6e95c821aba590fd9d2c" Selector="&lt;html app='chrome.exe' title='UiPath Automation Cloud' /&gt;&lt;webctrl isleaf='1' tag='P' aaname='Login' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
                 <Assign sap:VirtualizedContainerService.HintSize="333.777777777778,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[loginResult]</OutArgument>
@@ -218,7 +225,7 @@
                     <InArgument x:TypeArguments="x:String">failed</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="The first time you run the workflow in a new folder, we don't know the credential. I planned to use the MS password, but, as our password policy is more restrictive, we cannot just use that, so we append an ! and use the result as the new password&#xA;&#xA;Generating a new PW is also not an option as you can only sign up with a certain e-mail address once, so we need to make sure we have a reliable password" DisplayName="Invoke GenerateUserCredentialsIfNecessary workflow" sap:VirtualizedContainerService.HintSize="333.777777777778,247.555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="GenerateUserCredentialsIfNecessary.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="The first time you run the workflow in a new folder, we don't know the credential. I planned to use the MS password, but, as our password policy is more restrictive, we cannot just use that, so we append an ! and use the result as the new password&#xA;&#xA;Generating a new PW is also not an option as you can only sign up with a certain e-mail address once, so we need to make sure we have a reliable password" DisplayName="Invoke GenerateUserCredentialsIfNecessary workflow" sap:VirtualizedContainerService.HintSize="333.777777777778,247.555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="GenerateUserCredentialsIfNecessary.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InOutArgument x:TypeArguments="ss:SecureString" x:Key="pw">[pw]</InOutArgument>
                     <InOutArgument x:TypeArguments="x:String" x:Key="user">[user]</InOutArgument>
@@ -229,12 +236,71 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke OrchTryLogin workflow" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="OrchTryLogin.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="x:String" x:Key="LoginResult">[loginResult]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="user">[user]</InArgument>
+                    <InArgument x:TypeArguments="ss:SecureString" x:Key="pw">[pw]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </PickBranch>
+            <PickBranch DisplayName="PickBranch Log in" sap:VirtualizedContainerService.HintSize="425.333333333333,1169.77777777778" sap2010:WorkflowViewState.IdRef="PickBranch_10">
+              <PickBranch.Trigger>
+                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element Error" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_15">
+                  <ui:WaitUiElementAppear.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e065b1c4-eef6-42cd-8a79-82fbac931b6c" InformativeScreenshot="c46fb8774b80abbbbee7194ee95a78be" Selector="&lt;html app='chrome.exe' title='Continue with UiPath' /&gt;&lt;webctrl aaname='Log In' idx='1' tag='DIV' /&gt;" TimeoutMS="60000">
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:WaitUiElementAppear.Target>
+                </ui:WaitUiElementAppear>
+              </PickBranch.Trigger>
+              <Sequence sap:VirtualizedContainerService.HintSize="375.555555555556,568" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="333.777777777778,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[loginResult]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">failed</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="The first time you run the workflow in a new folder, we don't know the credential. I planned to use the MS password, but, as our password policy is more restrictive, we cannot just use that, so we append an ! and use the result as the new password&#xA;&#xA;Generating a new PW is also not an option as you can only sign up with a certain e-mail address once, so we need to make sure we have a reliable password" DisplayName="Invoke GenerateUserCredentialsIfNecessary workflow" sap:VirtualizedContainerService.HintSize="333.777777777778,247.555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="GenerateUserCredentialsIfNecessary.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InOutArgument x:TypeArguments="ss:SecureString" x:Key="pw">[pw]</InOutArgument>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="user">[user]</InOutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke OrchTryLogin workflow" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="OrchTryLogin.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="x:String" x:Key="LoginResult">
+                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="loginResult" />
+                    </OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="user">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="user" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="ss:SecureString" x:Key="pw">
+                      <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="pw" />
+                    </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
               </Sequence>
             </PickBranch>
           </Pick>
-          <If Condition="[loginResult = &quot;failed&quot;]" DisplayName="If wrong password" sap:VirtualizedContainerService.HintSize="2295.11111111111,617.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
+          <If Condition="[loginResult = &quot;failed&quot;]" DisplayName="If wrong password" sap:VirtualizedContainerService.HintSize="2295.11111111111,717.777777777778" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Then>
-              <Sequence sap2010:Annotation.AnnotationText="If we cannot log in, we try to sign up instead" DisplayName="SignUp" sap:VirtualizedContainerService.HintSize="375.555555555556,466.222222222222" sap2010:WorkflowViewState.IdRef="Sequence_23">
+              <Sequence sap2010:Annotation.AnnotationText="If we cannot log in, we try to sign up instead" DisplayName="SignUp" sap:VirtualizedContainerService.HintSize="375.555555555556,566.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="signupLink" />
                   <Variable x:TypeArguments="snm:MailMessage" Name="msg" />
@@ -260,10 +326,18 @@
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
                 <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="Deleted Items" MailMessage="[msg]" />
+                <Assign sap:VirtualizedContainerService.HintSize="333.777777777778,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[loginResult]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">cloud</InArgument>
+                  </Assign.Value>
+                </Assign>
               </Sequence>
             </If.Then>
           </If>
-          <If Condition="[loginResult = &quot;cloud&quot;]" sap:VirtualizedContainerService.HintSize="2295.11111111111,1468.88888888889" sap2010:WorkflowViewState.IdRef="If_5">
+          <If Condition="[loginResult = &quot;cloud&quot;]" sap:VirtualizedContainerService.HintSize="1829.77777777778,1468.88888888889" sap2010:WorkflowViewState.IdRef="If_5">
             <If.Then>
               <Sequence sap:VirtualizedContainerService.HintSize="1108,1317.77777777778" sap2010:WorkflowViewState.IdRef="Sequence_25">
                 <sap:WorkflowViewStateService.ViewState>
@@ -273,7 +347,7 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element" sap:VirtualizedContainerService.HintSize="1066.22222222222,68.4444444444444" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_7">
                   <ui:WaitUiElementAppear.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4ae89f62-d4ea-4f87-860d-6f9b9d5c0722" Selector="&lt;html app='chrome.exe' title='Home - UiPath Platform' /&gt;&lt;webctrl data-cy='service-instance-tile' tag='BUTTON' /&gt;" TimeoutMS="60000" WaitForReady="COMPLETE" />
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4ae89f62-d4ea-4f87-860d-6f9b9d5c0722" Selector="&lt;html app='chrome.exe' title='Home - UiPath Automation Cloud' /&gt;&lt;webctrl data-cy='service-instance-tile' tag='BUTTON' /&gt;" TimeoutMS="60000" WaitForReady="COMPLETE" />
                   </ui:WaitUiElementAppear.Target>
                 </ui:WaitUiElementAppear>
                 <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1066.22222222222,1116.88888888889" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:00">
@@ -297,7 +371,7 @@
                             </ui:CursorPosition>
                           </ui:Click.CursorPosition>
                           <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="564ffc1b-b71d-4672-900b-fe7afba900b1" InformativeScreenshot="478b4cca3697d8c4708a29d4b3c53c58" Selector="&lt;html app='chrome.exe' title='Home - UiPath Platform' /&gt;&lt;webctrl data-cy='service-instance-tile' tag='BUTTON' /&gt;" TimeoutMS="10000">
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="564ffc1b-b71d-4672-900b-fe7afba900b1" InformativeScreenshot="478b4cca3697d8c4708a29d4b3c53c58" Selector="&lt;html app='chrome.exe' title='Home - UiPath Automation Cloud' /&gt;&lt;webctrl data-cy='service-instance-tile' tag='BUTTON' /&gt;" TimeoutMS="10000">
                               <ui:Target.WaitForReady>
                                 <InArgument x:TypeArguments="ui:WaitForReady" />
                               </ui:Target.WaitForReady>
